@@ -1,0 +1,6 @@
+env/
+.env
+__pycache__/
+media/
+vector_store/
+db.sqlite3

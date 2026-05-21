@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="flex items-center justify-between mb-6">
+  <div>
+    <h1 class="text-3xl font-extrabold">Dashboard</h1>
+    <p class="text-slate-300 mt-1">Welcome, <span class="text-white font-semibold">{{ request.user.username }}</span></p>
+  </div>
+
+  <a href="{% url 'chat' %}"
+     class="px-6 py-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-fuchsia-500 text-black font-semibold hover:opacity-90">
+     Ask AI
+  </a>
+</div>
+
+<div class="grid lg:grid-cols-2 gap-6">
+
+  <div class="glass p-6 rounded-3xl">
+    <h2 class="text-xl font-bold mb-4">Recent Documents</h2>
+
+    {% if docs %}
+      <div class="space-y-3">
+        {% for d in docs %}
+          <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-between">
+            <div>
+              <p class="font-semibold">{{ d.title }}</p>
+              <p class="text-slate-400 text-sm">{{ d.created_at }}</p>
+            </div>
+            <a href="{% url 'document_detail' d.id %}" class="text-cyan-400 hover:underline">View</a>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="text-slate-400">No documents uploaded yet.</p>
+    {% endif %}
+  </div>
+
+  <div class="glass p-6 rounded-3xl">
+    <h2 class="text-xl font-bold mb-4">Recent Queries</h2>
+
+    {% if logs %}
+      <div class="space-y-3">
+        {% for l in logs %}
+          <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
+            <p class="font-semibold">{{ l.query }}</p>
+            <p class="text-slate-400 text-sm mt-1">{{ l.created_at }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="text-slate-400">No queries made yet.</p>
+    {% endif %}
+  </div>
+
+</div>
+
+{% endblock %}

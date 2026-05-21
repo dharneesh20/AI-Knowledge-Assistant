@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+<div class="max-w-xl mx-auto">
+  <div class="glass p-8 rounded-3xl">
+
+    <h1 class="text-3xl font-bold">Welcome back</h1>
+    <p class="text-slate-300 mt-2">Login to access your knowledge assistant.</p>
+
+    <form method="POST" class="mt-6 space-y-4">
+      {% csrf_token %}
+
+      <div>
+        <label class="text-sm text-slate-300">Username</label>
+        <input type="text" name="username" required />
+      </div>
+
+      <div>
+        <label class="text-sm text-slate-300">Password</label>
+        <div style="position: relative;">
+          <input type="password" name="password" id="password" class="form-control" required>
+          <span onclick="togglePassword('password', this)" 
+                style="position:absolute; right:15px; top:50%; transform:translateY(-50%);
+                cursor:pointer; font-size:18px;">
+              👁
+          </span>
+      </div>
+      </div>
+
+      <button class="w-full px-6 py-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-fuchsia-500 text-black font-semibold hover:opacity-90">
+        Login
+      </button>
+
+      <p class="text-slate-400 text-sm text-center">
+        Don’t have an account?
+        <a href="{% url 'register' %}" class="text-cyan-400 hover:underline">Register</a>
+      </p>
+    </form>
+
+  </div>
+</div>
+
+<style>
+  input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 16px;
+    background: #020617;
+    border: 1px solid #1e293b;
+    color: white;
+  }
+</style>
+<script>
+  function togglePassword(fieldId, icon) {
+      const input = document.getElementById(fieldId);
+      if (input.type === "password") {
+          input.type = "text";
+          icon.textContent = "🙈";
+      } else {
+          input.type = "password";
+          icon.textContent = "👁";
+      }
+  }
+  </script>
+{% endblock %}
+

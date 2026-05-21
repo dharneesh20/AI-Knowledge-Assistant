@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block title %}Home • AI Knowledge Assistant{% endblock %}
+
+{% block content %}
+
+<div class="grid lg:grid-cols-2 gap-10 items-center">
+
+  <div class="space-y-6">
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass">
+      <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+      <span class="text-sm text-slate-300">Personal AI Knowledge Assistant</span>
+    </div>
+
+    <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+      Upload documents.  
+      Ask questions.  
+      Get instant answers.
+    </h1>
+
+    <p class="text-slate-300 text-lg leading-relaxed">
+      This system converts your PDF/DOCX/TXT into embeddings, stores them in a vector index,
+      and retrieves the most relevant knowledge instantly using NLP.
+    </p>
+
+    <div class="flex flex-wrap gap-3">
+      {% if user.is_authenticated %}
+        <a href="{% url 'dashboard' %}"
+           class="px-6 py-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-fuchsia-500 text-black font-semibold hover:opacity-90">
+           Go to Dashboard
+        </a>
+        <a href="{% url 'documents' %}"
+           class="px-6 py-3 rounded-2xl bg-slate-900 border border-slate-800 hover:bg-slate-800">
+           Upload Documents
+        </a>
+      {% else %}
+        <a href="{% url 'register' %}"
+           class="px-6 py-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-fuchsia-500 text-black font-semibold hover:opacity-90">
+           Create Free Account
+        </a>
+        <a href="{% url 'login' %}"
+           class="px-6 py-3 rounded-2xl bg-slate-900 border border-slate-800 hover:bg-slate-800">
+           Login
+        </a>
+      {% endif %}
+    </div>
+
+    <div class="grid grid-cols-3 gap-4 pt-4">
+      <div class="glass p-4 rounded-2xl">
+        <p class="text-2xl font-bold">⚡</p>
+        <p class="text-sm text-slate-300 mt-2">Fast retrieval</p>
+      </div>
+      <div class="glass p-4 rounded-2xl">
+        <p class="text-2xl font-bold">🧠</p>
+        <p class="text-sm text-slate-300 mt-2">Embedding search</p>
+      </div>
+      <div class="glass p-4 rounded-2xl">
+        <p class="text-2xl font-bold">🔒</p>
+        <p class="text-sm text-slate-300 mt-2">Private knowledge</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="glass p-8 rounded-3xl shadow-2xl">
+    <h2 class="text-xl font-bold mb-4">How it works</h2>
+
+    <div class="space-y-4 text-slate-300">
+      <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
+        <p class="font-semibold text-white">1) Upload</p>
+        <p class="text-sm mt-1">PDF / DOCX / TXT files are uploaded into your account.</p>
+      </div>
+
+      <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
+        <p class="font-semibold text-white">2) Vectorize</p>
+        <p class="text-sm mt-1">Text is chunked and converted into embeddings.</p>
+      </div>
+
+      <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
+        <p class="font-semibold text-white">3) Ask</p>
+        <p class="text-sm mt-1">Your query becomes an embedding and searches the index.</p>
+      </div>
+
+      <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
+        <p class="font-semibold text-white">4) Answer</p>
+        <p class="text-sm mt-1">Top relevant chunks are returned as the AI answer.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

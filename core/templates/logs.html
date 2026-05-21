@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Logs{% endblock %}
+
+{% block content %}
+
+<!-- ✅ Clear Logs Button -->
+<form method="POST" action="{% url 'clear_logs' %}" style="text-align:right; margin-bottom:20px;">
+  {% csrf_token %}
+  <button type="submit" 
+      style="background:#ff4d4d; color:white; padding:8px 14px; 
+      border:none; border-radius:6px; cursor:pointer;">
+      🗑 Clear All Logs
+  </button>
+</form>
+
+<div class="mb-6">
+  <h1 class="text-3xl font-extrabold">Query Logs</h1>
+  <p class="text-slate-300 mt-2">
+    Your previous searches and responses.
+  </p>
+</div>
+
+<div class="glass p-6 rounded-3xl">
+  {% if logs %}
+    <div class="space-y-3">
+      {% for l in logs %}
+        <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
+          <p class="font-semibold text-white">{{ l.query }}</p>
+          <p class="text-slate-400 text-sm mt-1">{{ l.created_at }}</p>
+          <p class="text-slate-200 mt-3 whitespace-pre-line">{{ l.response }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="text-slate-400">No logs available.</p>
+  {% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Document Detail{% endblock %}
+
+{% block content %}
+
+<div class="glass p-8 rounded-3xl">
+  <h1 class="text-3xl font-extrabold">{{ doc.title }}</h1>
+  <p class="text-slate-300 mt-2">
+    Category: <span class="text-white font-semibold">{{ doc.category }}</span>
+  </p>
+  <p class="text-slate-400 text-sm mt-1">
+    Uploaded: {{ doc.created_at }}
+  </p>
+
+  <div class="mt-6 flex gap-3 flex-wrap">
+    <a href="{{ doc.file.url }}"
+       class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 hover:bg-slate-800">
+       Download File
+    </a>
+
+    <form method="POST" action="{% url 'document_delete' doc.id %}">
+      {% csrf_token %}
+      <button class="px-4 py-2 rounded-xl bg-red-500/10 border border-red-500/30 text-red-300 hover:bg-red-500/20">
+        Delete Document
+      </button>
+    </form>
+
+    <a href="{% url 'documents' %}"
+       class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 hover:bg-slate-800">
+       Back
+    </a>
+  </div>
+
+</div>
+
+{% endblock %}

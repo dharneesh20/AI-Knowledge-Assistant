@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}AI Knowledge Assistant{% endblock %}</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .glass {
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+  </style>
+</head>
+
+<body class="bg-slate-950 text-slate-100 min-h-screen">
+
+  <!-- Background glow -->
+  <div class="fixed inset-0 -z-10">
+    <div class="absolute top-0 left-0 w-[600px] h-[600px] bg-cyan-500/10 blur-[120px] rounded-full"></div>
+    <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-fuchsia-500/10 blur-[120px] rounded-full"></div>
+  </div>
+
+  {% include "partials/navbar.html" %}
+  {% include "partials/toast.html" %}
+
+  <main class="max-w-6xl mx-auto px-4 py-8">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="text-center text-slate-500 text-sm py-8">
+    Personal AI Knowledge Assistant • Django + NLP • {{ now|date:"Y" }}
+  </footer>
+
+</body>
+</html>
