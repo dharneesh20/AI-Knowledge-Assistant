@@ -1,10 +1,10 @@
-# 🧠 Personal AI Knowledge Assistant
+# AI Knowledge Assistant
 
 > An intelligent document Q&A system — upload your documents, ask questions, get precise AI-powered answers.
 
 ---
 
-## 📌 Overview
+## Overview
 
 **Personal AI Knowledge Assistant** is a full-stack AI-powered web application that transforms static documents into an interactive knowledge base. Users can upload documents in PDF, DOCX, or TXT format and query their content using natural language. The system uses semantic search via FAISS and generates intelligent, context-aware responses through the Groq LLM API.
 
@@ -12,21 +12,21 @@ This project was developed as part of a hands-on exploration into Retrieval-Augm
 
 ---
 
-## ✨ Features
+## Features
 
 | Feature | Description |
 |---|---|
-| 🔐 User Authentication | Secure login and registration system |
-| 📄 Document Upload | Supports PDF, DOCX, and TXT file formats |
-| ✂️ Text Chunking | Splits documents into semantically meaningful chunks |
-| 🔢 Embedding Generation | Converts text chunks into vector embeddings |
-| 🔍 Semantic Search | Retrieves relevant context using FAISS vector similarity |
-| 🤖 AI Answer Generation | Generates accurate answers using Groq LLM |
-| 🗄️ Persistent Storage | Stores document metadata and vectors in SQLite |
+| User Authentication | Secure login and registration system |
+| Document Upload | Supports PDF, DOCX, and TXT file formats |
+| Text Chunking | Splits documents into semantically meaningful chunks |
+| Embedding Generation | Converts text chunks into vector embeddings |
+| Semantic Search | Retrieves relevant context using FAISS vector similarity |
+| AI Answer Generation | Generates accurate answers using Groq LLM |
+| Persistent Storage | Stores document metadata and vectors in SQLite |
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 ```
 User Uploads Document
@@ -53,7 +53,7 @@ User Uploads Document
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Backend:** Python, Django
 - **AI / ML:** FAISS, Sentence Transformers, Groq API
@@ -63,7 +63,7 @@ User Uploads Document
 
 ---
 
-## ⚙️ Installation & Setup
+## Installation & Setup
 
 ### Prerequisites
 
@@ -112,7 +112,7 @@ Visit `http://127.0.0.1:8000` in your browser.
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 AI-Knowledge-Assistant/
@@ -127,7 +127,7 @@ AI-Knowledge-Assistant/
 
 ---
 
-## 🚀 Usage
+## Usage
 
 1. **Register / Log in** to your account
 2. **Upload a document** (PDF, DOCX, or TXT)
@@ -137,20 +137,20 @@ AI-Knowledge-Assistant/
 
 ---
 
-## 📅 Project Duration
+## Project Duration
 
 **3 Months** — Developed as a solo project from design to deployment.
 
 ---
 
-## 👤 Author
+## Author
 
 **Dharneesh**
 - GitHub: [@dharneesh20](https://github.com/dharneesh20)
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the [MIT License](LICENSE).
 
